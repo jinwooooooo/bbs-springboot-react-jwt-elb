@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="lotte.com.a.dao.MemberDao">
+
+<select id="getId" parameterType="lotte.com.a.dto.MemberDto" resultType="java.lang.Integer">
+	select count(*)
+	from member
+	where id=#{id}
+</select>
+
+<insert id="account" parameterType="lotte.com.a.dto.MemberDto">
+	insert into member(id, pwd, name, email, auth)
+	values(#{id}, #{pwd}, #{name}, #{email}, 3)
+</insert>
+
+<select id="login" parameterType="lotte.com.a.dto.MemberDto" 
+	resultType="lotte.com.a.dto.MemberDto">
+	select id, name, email, auth, pwd
+	from member
+	where id=#{id}
+</select>
+
+</mapper>
+
+
+

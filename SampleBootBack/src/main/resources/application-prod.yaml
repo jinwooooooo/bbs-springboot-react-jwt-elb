@@ -1,0 +1,14 @@
+server:
+  port: 5000
+spring:
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://${rds.hostname}:${rds.port}/${rds.db.name}
+      username: ${rds.username}
+      password: ${rds.password}
+      connection-timeout: 3000
+      validation-timeout: 3000
+      minimum-idle: 5
+      max-lifetime: 240000
+      maximum-pool-size: 20
